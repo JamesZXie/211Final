@@ -1,0 +1,53 @@
+create_device digital_sensor  "Left Turn Signal"  21   OFF
+create_device digital_sensor  "Right Turn Signal"  22   OFF
+create_device analog_sensor   Accelerator  41    0  7
+create_device analog_sensor   Brake        42    0  5
+create_device analog_sensor   Speedometer  43    0  7
+create_device digital_controller   "Left Turn Lamp"    51
+create_device digital_controller   "Right Turn Lamp"   52
+create_device digital_controller   "Brake Lamps"       53
+create_device analog_controller    Motor               61    0    100 0
+status devices
+status events
+time_click
+time_click
+status events
+set_device_value  "Left Turn Signal" 1
+status events
+time_click
+set_device_value  Brake 1
+status events
+time_click
+time_click
+time_click
+time_click
+time_click
+set_device_value  Brake 0
+time_click
+time_click
+time_click
+set_device_value  "Left Turn Signal" 0
+status events
+time_click
+time_click
+time_click
+time_click
+set_device_value  Accelerator   50
+set_device_value  Speedometer 35
+status devices
+status events
+time_click
+time_click
+set_device_value  Speedometer 96
+status devices
+status events
+time_click
+time_click
+set_device_value  Speedometer 127
+status events
+malfunction "Brake Lamps" 23
+status devices
+time_click
+halt
+
+
